@@ -50,7 +50,7 @@
 
 This is a list of relevant theorems with references.
 
-\section{Probability}
+\section{Measure and robability}
 \label{sec:probability}
 
 The triple $(\Omega,\mathcal M,\mu)$ is a \emph{measure space} if
@@ -75,6 +75,38 @@ $\Omega$ is a set and the following holds.
     $\mu(\Omega_k) < \infty$ for all $k$.
   \end{enumerate}
 \end{enumerate}
+
+A mesure $\mu$ is finite if $\mu(\Omega) < \infty$. A finite measure
+is a probability measure if $\mu(\Omega) =1$. The couple
+$(\Omega,\mathcal M)$ is a \emph{measurable space} and $\mu$ is a
+measure on that measurable space. The set of all measures is closed
+for positive combinations.
+
+\begin{theorem}[Equality of measures] Let $\mathcal C \subset \mathcal M$ be a
+  generating family, that is, $\mathcal M$ is the smallest
+  $\sigma$-algebra that contains $\mathcal C$, $\mathcal M =
+  \sigma(\mathcal C)$. Assume that $\mathcal C$ is closed under
+  intersection. If $\mu_1$ and $\mu_2$ are two measures on
+  $(\Omega,\mathcal M)$ such that $\mu_1(C) = \mu_2(C)$ for all $C \in
+  \mathcal C$, then $\mu_1 = \mu_2$. 
+\end{theorem}
+
+\begin{theorem}[Counting measure] Let $\Omega$ be denumerable. There
+  exists a unique measure $\mu$ on $\Omega,2^\Omega$ such that
+  $\mu(\omega) = 1$, $\omega in \Omega$.
+\end{theorem}
+
+\begin{theorem}[Lebesgue measure] Let $\mathcal B$ be the
+  $\sigma$-algebra generated in $\reals$ by the intervals of the form
+  $]-\infty,a]$, $a\in\treals$. There exists a unique measure $\mu$ on
+  $(\reals,\mathcal B)$ such that $\mu(]a,b])=b-a$.
+\end{theorem}
+
+\section{Measurable functions}
+\label{sec:measurable-functions}
+
+
+
 \section{Integrals}
 \label{sec:integrals}
 
