@@ -53,8 +53,8 @@ This is a list of relevant theorems with references.
 \section{Probability}
 \label{sec:probability}
 
-The triple $(\Omega,\mathcal M,\mu)$ is a \emph{measure space} is
-$\Omega$ is a set and
+The triple $(\Omega,\mathcal M,\mu)$ if a \emph{measure space} is
+$\Omega$ is a set and the following holds.
 \begin{enumerate}
 \item $\mathcal M$ is a \emph{$\sigma$-algebra}, that is, $\mathcal M
   \subset 2^\Omega$, and
@@ -64,7 +64,16 @@ $\Omega$ is a set and
   \item $\cup_{i=1}^{\infty} A_i \in \mathcal M$ if $A_i \in \mathcal
     M$ for all $i \in \naturals$.
   \end{enumerate}
-
+  \item $\mu$ is a \emph{$\sigma$-finite measure}, briefly, a
+    \emph{measure}, that is, $\mu \colon \Omega \to [0,\infty]$ satisfies
+  \begin{enumerate} 
+  \item $\mu(\emptyset) = 0$,
+  \item $\mu\left(\cup_{i=1 }^\infty A_i\right) = \sum_{i=1}^\infty
+    \mu(A_i)$ whenever $(A_i)$ is a disjoint sequence in $\mathcal M$.
+  \item There is an increasing sequence $(\Omega_k)$ in $\mathcal M$
+    such that $\Omega = \cup_{k=1}^\infty \Omega_k$ and
+    $\mu(\Omega_k) < \infty$ for all $k$.
+  \end{enumerate}
 \end{enumerate}
 \section{Integrals}
 \label{sec:integrals}
