@@ -104,12 +104,12 @@ sequence of measurable sets, then
 \begin{equation*}
   \mu(\liminf_{i\to\infty} A_i) \leq \liminf_{i\to\infty} \mu(A_i) \ .
 \end{equation*}
-If, moreover, $\mu(\limsup_{i\to\infty} A_i) < \infty$, then
+If, moreover, $\mu(\cup_{j > i} A_i) < \infty$ for some $j$, then
 \begin{equation*}
   \limsup_{i\to\infty} \mu(A_i) \leq \mu(\limsup_{i\to\infty} A_i) \ .
 \end{equation*}
-\begin{proof}
-$\mu$ is continous on increasing sequences. Hence,
+\begin{proof} The proof is simple and the result is important. As
+  $\mu$ is continous on increasing sequences,
   \begin{equation*}
 \mu(\liminf_{i\to\infty} A_i) = \mu(\cup_i \cap_{j\ge i} A_) = \sup_i
 \mu(\cap_{j \geq i} A_j) \leq \sup_i \inf_{j > i} \mu(A_j) =
