@@ -69,22 +69,24 @@ $\Omega$ is a set and the following holds.
     \emph{measure}, that is, $\mu \colon \Omega \to [0,\infty]$ satisfies
   \begin{enumerate} 
   \item $\mu(\emptyset) = 0$,
-  \item $\mu\left(\cup_{i=1 }^\infty A_i\right) = \sum_{i=1}^\infty
+  \item \label{item:measure-sigma}
+    $\mu\left(\cup_{i=1 }^\infty A_i\right) = \sum_{i=1}^\infty
     \mu(A_i)$ whenever $(A_i)$ is a disjoint sequence in $\mathcal
-    M$. Equivalently, $\mu(A \cup B) + \mu(A \cap B) = \mu(A) +
-    \mu(B)$ and $B_i \downarrow B$ implies $\mu(B_i) \downarrow \mu(B)$.
+    M$. Equivalently,
+    $\mu(A \cup B) + \mu(A \cap B) = \mu(A) + \mu(B)$ and
+    $B_i \uparrow B$ implies $\mu(B_i) \uparrow \mu(B)$.
   \item There is an increasing sequence $(\Omega_k)$ in $\mathcal M$
     such that $\Omega = \cup_{k=1}^\infty \Omega_k$ and
     $\mu(\Omega_k) < \infty$ for all $k$.
   \end{enumerate}
 \end{enumerate}
 \end{definition}
-
-A mesure $\mu$ is finite if $\mu(\Omega) < \infty$. A finite measure
-is a probability measure if $\mu(\Omega) =1$. The couple
-$(\Omega,\mathcal M)$ is a \emph{measurable space} and $\mu$ is a
-measure on that measurable space. The set of all measures is closed
-for positive combinations.
+Notice the up-arrow in \cref{item:measure-sigma}. The continuity on
+$B_i \downarrow B$ requires $\mu(B_1) < \infty$.  A mesure $\mu$ is
+finite if $\mu(\Omega) < \infty$. A finite measure is a probability
+measure if $\mu(\Omega) =1$. The couple $(\Omega,\mathcal M)$ is a
+\emph{measurable space} and $\mu$ is a measure on that measurable
+space. The set of all measures is closed for positive combinations.
 
 \begin{theorem}[Equality of measures] Let $\mathcal C \subset \mathcal M$ be a
   generating family, that is, $\mathcal M$ is the smallest
