@@ -70,7 +70,9 @@ $\Omega$ is a set and the following holds.
   \begin{enumerate} 
   \item $\mu(\emptyset) = 0$,
   \item $\mu\left(\cup_{i=1 }^\infty A_i\right) = \sum_{i=1}^\infty
-    \mu(A_i)$ whenever $(A_i)$ is a disjoint sequence in $\mathcal M$.
+    \mu(A_i)$ whenever $(A_i)$ is a disjoint sequence in $\mathcal
+    M$. Equivalently, $\mu(A \cup B) + \mu(A \cap B) = \mu(A) +
+    \mu(B)$ and $B_i \downarrow B$ implies $\mu(B_i) \downarrow \mu(B)$.
   \item There is an increasing sequence $(\Omega_k)$ in $\mathcal M$
     such that $\Omega = \cup_{k=1}^\infty \Omega_k$ and
     $\mu(\Omega_k) < \infty$ for all $k$.
@@ -103,7 +105,14 @@ If, moreover, $\mu(\limsup_{i\to\infty} A_i) < \infty$, then
 \begin{equation*}
   \limsup_{i\to\infty} \mu(A_i) \leq \mu(\limsup_{i\to\infty} A_i) \ .
 \end{equation*}
-
+\begin{proof}
+$\mu$ is continous on decreasing sequences as a consequence of
+$\sigma$-additivity. Hence,
+  \begin{equation*}
+\mu(\liminf_{i\to\infty} A_i) = \mu(\cap_i \cup_{j\ge i} A_) = \inf_i
+\mu(\cup_{j \geq i} A_j)    
+  \end{equation*}
+\end{proof}
 \end{theorem}
 \begin{theorem}[Product measure] Given measure spaces
   $(\Omega_1,\mathcal M_1,\mu_1)$ and $(\Omega_2,\mathcal M_2,\mu_2)$,
