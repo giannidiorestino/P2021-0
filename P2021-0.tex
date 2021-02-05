@@ -32,10 +32,10 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{npar}{}%[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}%[section]
+\newtheorem{definition}[theorem]{Definition}%[section]
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}
-\newtheorem{example}{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 \title{Probability 2021 \\ Part 0
 }
@@ -49,22 +49,37 @@
 \maketitle
 \tableofcontents
 
-This is a list of relevant theorems with references from \cite{rudin:1987-3rd}
+This chapter is intended to be a review of basic results in Measure
+Theory whose knowledge I consider useful even to those readers which
+do not need a detailed knowledge of the general mathematical
+theory. It is convenient to regularly consult reliable classical
+textbooks when need arises. I suggest to consult:
+\cite{rudin:1987-3rd} for Analysis and Measure Theory,
+\cite{jacod|protter:2003} for Probability with martingales,
+\cite{malliavin:1995} for Probability with Fourier Analysis and
+Gaussian Analysis, \cite{ross:2019introduction12} for a first
+non-technical introduction to probability models (Markov Chains,
+Poisson Process, Continuous-Time Markov Chains, Renewal Theory,
+Queueing Theory, Reliability Theory, Brownian Motion, Simulation,
+Coupling), and \cite{efron|hastie:2016} for modern applications to
+Statistics (Lasso, Random Forests, Neural Networks, Deep Learning,
+Support-Vector Machines, Kernel Methods, Empirical Bayes).
 
-\section{Measure and robability}
+\section{Measure and probability}
 \label{sec:probability}
 
 \begin{definition}
-The triple $(\Omega,\mathcal M,\mu)$ is a \emph{measure space} if
+The triple $(\Omega,\mathcal A,\mu)$ is a \emph{measure space} if
 $\Omega$ is a set and the following holds.
 \begin{enumerate}
-\item $\mathcal M$ is a \emph{$\sigma$-algebra}, that is, $\mathcal M
+\item $\mathcal A$ is a \emph{$\sigma$-algebra}, that is, $\mathcal A
   \subset 2^\Omega$, and
   \begin{enumerate}
-  \item $\emptyset, \Omega \in \mathcal M$,
-  \item $A \in \mathcal M$ implies $A^{\text c} \in \mathcal M$,
-  \item $\cup_{i=1}^{\infty} A_i \in \mathcal M$ if $A_i \in \mathcal
-    M$ for all $i \in \naturals$.
+  \item $\emptyset, \Omega \in \mathcal A$,
+  \item $A \in \mathcal A$ implies $A^{\text c} \in \mathcal A$,
+  \item
+    $\cup_{i=1}^{\infty} A_i, \cap_{i=1}^{\infty} A_i \in \mathcal A$
+    if $A_i \in \mathcal A$ for all $i \in \naturals$.
   \end{enumerate}
   \item $\mu$ is a \emph{$\sigma$-finite measure}, briefly, a
     \emph{measure}, that is, $\mu \colon \Omega \to [0,\infty]$ satisfies
@@ -76,7 +91,7 @@ $\Omega$ is a set and the following holds.
     M$. Equivalently,
     $\mu(A \cup B) + \mu(A \cap B) = \mu(A) + \mu(B)$ and
     $B_i \uparrow B$ implies $\mu(B_i) \uparrow \mu(B)$.
-  \item There is an increasing sequence $(\Omega_k)$ in $\mathcal M$
+  \item There is an increasing sequence $(\Omega_k)$ in $\mathcal A$
     such that $\Omega = \cup_{k=1}^\infty \Omega_k$ and
     $\mu(\Omega_k) < \infty$ for all $k$.
   \end{enumerate}
@@ -85,21 +100,43 @@ $\Omega$ is a set and the following holds.
 Notice the up-arrow in \cref{item:measure-sigma}. The continuity on
 $B_i \downarrow B$ requires $\mu(B_1) < \infty$.  A mesure $\mu$ is
 finite if $\mu(\Omega) < \infty$. A finite measure is a probability
-measure if $\mu(\Omega) =1$. The couple $(\Omega,\mathcal M)$ is a
+measure if $\mu(\Omega) =1$. The couple $(\Omega,\mathcal A)$ is a
 \emph{measurable space} and $\mu$ is a measure on that measurable
 space. The set of all measures is closed for positive combinations.
 
-\begin{theorem}[Equality of measures] Let $\mathcal C \subset \mathcal M$ be a
-  generating family, that is, $\mathcal M$ is the smallest
-  $\sigma$-algebra that contains $\mathcal C$, $\mathcal M =
-  \sigma(\mathcal C)$. Assume that $\mathcal C$ is closed under
-  intersection. If $\mu_1$ and $\mu_2$ are two measures on
-  $(\Omega,\mathcal M)$ such that $\mu_1(C) = \mu_2(C)$ for all $C \in
-  \mathcal C$, then $\mu_1 = \mu_2$. 
-\end{theorem}
+\begin{definition}[Generation of a $\sigma$-algebra]\ \begin{enumerate}
+  \item The family 
+  $\mathcal C \subset \mathcal A$ is a \emph{generating family} if
+  $\mathcal A$ is the smallest $\sigma$-algebra that contains
+  $\mathcal C$, $\mathcal A = \sigma(\mathcal C)$.
+\item A family $\mathcal C \subset \mathcal A$ is a \emph{Dynkin
+    system} if
+  \begin{enumerate}
+  \item $\Omega \in \mathcal C$,
+  \item $A \setminus B \in \mathcal C$ whenever $A \supset B$ and $A,B
+    \in \mathcal C$,
+  \item If $(B_i)$ is an increasing sequence in $\mathcal C$, then
+    $\cup_i B_i \in \mathcal B$.
+  \end{enumerate}
+  \item A family $\mathcal C \subset \mathcal A$ is a
+    \emph{$\pi$-system} if it is closed under intersection.  
+  \end{enumerate}
+\end{definition}
 
-\begin{theorem}[Fatou]
-If $(\Omega,\mathcal M,\mu)$ is a measure space and $(A_i)$ is a
+\begin{theorem}[Equality of measures]
+  \begin{enumerate}\ 
+  \item  \label{item:dynkin} $\mathcal C$ is \emph{both} a Dynkin system and a
+    $\pi$-system if, and only if, it is a $\sigma$-algebra.
+  \item \label{item:equality} If $\mu_1$ and $\mu_2$ are two measures on
+    $(\Omega,\mathcal A)$ such that $\mu_1(C) = \mu_2(C)$ for all
+    $C \in \mathcal C$, and $\mathcal C$ is a $\pi$-system and
+    generates $\mathcal A$, then $\mu_1 = \mu_2$.
+\end{enumerate}
+\end{theorem}
+See \cite[Ch. 6]{jacod|protter:2003} or \cite[Sec. 1.1]{malliavin:1995}.
+
+\begin{theorem}[Fatou for sets]
+If $(\Omega,\mathcal A,\mu)$ is a measure space and $(A_i)$ is a
 sequence of measurable sets, then
 \begin{equation*}
   \mu(\liminf_{i\to\infty} A_i) \leq \liminf_{i\to\infty} \mu(A_i) \ .
@@ -118,28 +155,28 @@ If, moreover, $\mu(\cup_{j > i} A_i) < \infty$ for some $j$, then
 \end{proof}
 \end{theorem}
 \begin{theorem}[Product measure] Given measure spaces
-  $(\Omega_1,\mathcal M_1,\mu_1)$ and $(\Omega_2,\mathcal M_2,\mu_2)$,
+  $(\Omega_1,\mathcal A_1,\mu_1)$ and $(\Omega_2,\mathcal A_2,\mu_2)$,
   there exixts a unique \emph{product space} $(\Omega_1 \times
-  \Omega_2, \mathcal M_1 \otimes \mathcal M_2, \mu_1 \otimes \mu_2)$, where:
+  \Omega_2, \mathcal A_1 \otimes \mathcal A_2, \mu_1 \otimes \mu_2)$, where:
   \begin{enumerate}
   \item $\Omega = \Omega_1 \times \Omega _2$ is the Cartesian product.
-  \item $\mathcal M = \mathcal M_1 \otimes \mathcal M_2$ is the
+  \item $\mathcal A = \mathcal A_1 \otimes \mathcal A_2$ is the
     $\sigma$-algebra generated by the rectangles $A_1 \times A_2$,
-    $A_1 \in \mathcal M_1$ and $A_2 \in \mathcal M_2$. 
+    $A_1 \in \mathcal A_1$ and $A_2 \in \mathcal A_2$. 
   \item $\mu = \mu_1 \otimes \mu_2$ is characterised by $\mu(A_1
     \times A_2) = \mu_1(A_1) \mu_2(A_2)$.
   \end{enumerate}
-For each $A \in \mathcal M$ and each $\omega_2 \in \Omega_2$, the
+For each $A \in \mathcal A$ and each $\omega_2 \in \Omega_2$, the
 section $A_{\omega_2} = \setof{\omega_1}{(\omega_2,\omega_2) \in A}$
-belongs to $\mathcal M_1$.
+belongs to $\mathcal A_1$.
 \end{theorem}
 
 \begin{proof}
   The proof uses integration, see below. Let us check the last
-  statement. Let $\overline {\mathcal M}$ be the family of all subsets of
+  statement. Let $\overline {\mathcal A}$ be the family of all subsets of
   $\Omega$ such that the section is measurable. This family is a
-  $\sigma$-algebra and contains all rectangles, hence $\overline {\mathcal M}
-  \supset \mathcal M$.
+  $\sigma$-algebra and contains all rectangles, hence $\overline {\mathcal A}
+  \supset \mathcal A$.
 \end{proof}
 
 \begin{theorem}[Counting measure] Let $\Omega$ be denumerable. There
@@ -161,10 +198,10 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
 \label{sec:measurable-functions}
 
 \begin{definition}
-  Let be given measurable spaces $(\Omega,\mathcal M)$ and
+  Let be given measurable spaces $(\Omega,\mathcal A)$ and
   $(S,\mathcal S)$. A function $f \colon \Omega \to S$ is \emph{measurable}
   (or a \emph{random variable}) if $f^{-1} \colon \mathcal S \to
-  \mathcal M$. If $\mu$ is a measure on $(\Omega,\mathcal M)$, then
+  \mathcal A$. If $\mu$ is a measure on $(\Omega,\mathcal A)$, then
   $f_\# = \mu \circ f^{-1}$ is a measure on $(S,\mathcal S)$. $f_\#$ has many names: \emph{image}, \emph{push-forward},
 \emph{distribution}.
 \end{definition}
