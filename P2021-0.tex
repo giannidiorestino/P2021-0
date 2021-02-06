@@ -2,14 +2,17 @@
 %\usepackage[utf8]{inputenc}
 
 \usepackage{amsmath,amssymb}
+\swapnumbers
 \usepackage{bbm}
 \usepackage{bibentry}
 \usepackage{bm}
-\usepackage{cleveref}
 \usepackage{fullpage}
 \usepackage{macros}
 \usepackage{mathabx}
 \usepackage{mathtools}
+
+
+\usepackage{cleveref}
 
 \newcommand{\Dspace}[2]{\mathbb D^{#1,#2}}
 \newcommand{\Image}{\operatorname{image}}
@@ -27,15 +30,18 @@
 \newcommand{\ppdiag}[1]{\diag_{++}\left(#1\right)}
 \renewcommand{\S}{\mathbb S}
 
-\theoremstyle{plain}% default
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}%[section]
+\newtheorem{definition}[theorem]{Definition}%[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{npar}{}%[section]
+
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}%[section]
+
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
+
 
 \title{Probability 2021 \\ Part 0
 }
@@ -49,23 +55,21 @@
 \maketitle
 \tableofcontents
 
-This chapter is intended to be a review of basic results in Measure
-Theory whose knowledge I consider useful even to those readers which
+This chapter offers a review of basic results in Measure Theory whose knowledge I consider useful even to those readers which
 do not need a detailed knowledge of the general mathematical
-theory. It is convenient to regularly consult reliable classical
-textbooks when need arises. I suggest to consult:
+theory. It is convenient to consult regularly reliable classical
+textbooks when the need arises. I suggest consulting:
 \cite{rudin:1987-3rd} for Analysis and Measure Theory,
 \cite{jacod|protter:2003} for Probability with martingales,
 \cite{malliavin:1995} for Probability with Fourier Analysis and
-Gaussian Analysis, \cite{ross:2019introduction12} for a first
-non-technical introduction to probability models (Markov Chains,
+Gaussian Analysis, \cite{ross:2019introduction12} for a non-technical first introduction to probability models (Markov Chains,
 Poisson Process, Continuous-Time Markov Chains, Renewal Theory,
 Queueing Theory, Reliability Theory, Brownian Motion, Simulation,
 Coupling), and \cite{efron|hastie:2016} for modern applications to
 Statistics (Lasso, Random Forests, Neural Networks, Deep Learning,
 Support-Vector Machines, Kernel Methods, Empirical Bayes).
 
-\section{Measure and probability}
+\section{$\sigma$-algebra, measure, and probability}
 \label{sec:probability}
 
 \begin{definition}
@@ -97,6 +101,7 @@ $\Omega$ is a set and the following holds.
   \end{enumerate}
 \end{enumerate}
 \end{definition}
+
 Notice the up-arrow in \cref{item:measure-sigma}. The continuity on
 $B_i \downarrow B$ requires $\mu(B_1) < \infty$.  A mesure $\mu$ is
 finite if $\mu(\Omega) < \infty$. A finite measure is a probability
@@ -104,7 +109,9 @@ measure if $\mu(\Omega) =1$. The couple $(\Omega,\mathcal A)$ is a
 \emph{measurable space} and $\mu$ is a measure on that measurable
 space. The set of all measures is closed for positive combinations.
 
-\begin{definition}[Generation of a $\sigma$-algebra]\ \begin{enumerate}
+%\noindent
+\begin{definition}[Generation of a $\sigma$-algebra]
+\begin{enumerate} 
   \item The family 
   $\mathcal C \subset \mathcal A$ is a \emph{generating family} if
   $\mathcal A$ is the smallest $\sigma$-algebra that contains
@@ -124,7 +131,7 @@ space. The set of all measures is closed for positive combinations.
 \end{definition}
 
 \begin{theorem}[Equality of measures]
-  \begin{enumerate}\ 
+  \begin{enumerate} 
   \item  \label{item:dynkin} $\mathcal C$ is \emph{both} a Dynkin system and a
     $\pi$-system if, and only if, it is a $\sigma$-algebra.
   \item \label{item:equality} If $\mu_1$ and $\mu_2$ are two measures on
@@ -133,6 +140,7 @@ space. The set of all measures is closed for positive combinations.
     generates $\mathcal A$, then $\mu_1 = \mu_2$.
 \end{enumerate}
 \end{theorem}
+
 See \cite[Ch. 6]{jacod|protter:2003} or \cite[Sec. 1.1]{malliavin:1995}.
 
 \begin{theorem}[Fatou for sets]
@@ -145,6 +153,8 @@ If, moreover, $\mu(\cup_{j > i} A_i) < \infty$ for some $j$, then
 \begin{equation*}
   \limsup_{i\to\infty} \mu(A_i) \leq \mu(\limsup_{i\to\infty} A_i) \ .
 \end{equation*}
+\end{theorem}
+
 \begin{proof} The proof is simple and the result is important. As
   $\mu$ is continous on increasing sequences,
   \begin{equation*}
@@ -153,7 +163,7 @@ If, moreover, $\mu(\cup_{j > i} A_i) < \infty$ for some $j$, then
 \liminf_{i\to\infty} \mu(A_i) \ .   
   \end{equation*}
 \end{proof}
-\end{theorem}
+
 \begin{theorem}[Product measure] Given measure spaces
   $(\Omega_1,\mathcal A_1,\mu_1)$ and $(\Omega_2,\mathcal A_2,\mu_2)$,
   there exixts a unique \emph{product space} $(\Omega_1 \times
