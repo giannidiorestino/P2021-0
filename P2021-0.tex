@@ -257,29 +257,46 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
   \item The set of real measurable functions is a real vector space.
   \item \label{item:upsimple} A non-negative function $f$ is measurable from
     $(\Omega,\mathcal A)$ to $\reals,\mathcal B$ if, and only if,
-    there exists an increasing sequence $f_j$ of simple measurable
+    there exists an increasing sequence $g_j$ of simple measurable
     functions
     \begin{equation*}
-      f_j(\omega) = \sum_{x \in \operatorname{Image} f_j} x (\omega : f_j(\omega) = x)
+      g_j(\omega) = \sum_{x \in \operatorname{Image} g_j} x (\omega : f_j(\omega) = x)
     \end{equation*}
-such that $f_j(\omega) \uparrow f(\omega)$.
+    such that $f_j(\omega) \uparrow f(\omega)$.
   \end{enumerate}
 \end{theorem}
-\section{Integrals}
+\section{Integral}
 \label{sec:integrals}
 
 \begin{theorem}[Integral of a positive measurable function]
-Let $f$ be a non-negative measurable function on the measure space
-$(\Omega,\mathcal A,\mu)$ and let $(f_j)$ be as in
-\cref{item:upsimple} of \cref{th:checkmeasurable}.
+Let $f$ be a non-negative measurable function on the measurable space
+$(\Omega,\mathcal A)$, $f \in \mathcal L_+(\mathcal A)$ and let $(g_j)$ be a sequence of simple
+functions increasing pointwise $f$, see
+\cref{th:checkmeasurable}\eqref{item:upsimple}. Le be given a measure $\mu$
+on $(\Omega,\mathcal A)$.
 \begin{enumerate}
 \item The limit
   \begin{equation*}
-    \int f \ d\mu = \sup_j f_j(\omega) = \sum_{x \in
-      \operatorname{Image} f_j} x \mu\setof{\omega}{f_j(\omega) = x}  
+    \int f \ d\mu = \sup_j \int f_j(\omega) \ d\mu = \sup_j \sum_{x \in
+      \operatorname{Image} f_j} x \mu\setof{\omega}{f_j(\omega) = x}
+    \in [0,\infty]  
   \end{equation*}
-  does not depend on the sequence $(f_j)$ and it is called the
+  does not depend on the sequence $(g_j) \uparrow f$ and it is called the
   \emph{integral of $f$ with respect to $\mu$}.
+\item Given constants $\alpha,\beta \geq 0$ and functions $f,g \in
+  \mathcal L_+(\mathcal A)$, it holds
+  \begin{equation*}
+    \int (\alpha f + \beta g) \ d\mu = \alpha \int f \ d\mu + \beta
+    \int g \ d\mu
+  \end{equation*}
+in the algebra of $[0,\infty]$. 
+\item For each sequence $(f_j)$ of non-negative measurable function
+  the \emph{Fatou theorem} holds,
+  \begin{equation*}
+    \int \liminf_{j \to \infty} f_j \ d\mu \leq \liminf_{j \to \infty}
+    \int f_j \ d\mu \ .
+  \end{equation*}
+
 \end{enumerate}
 
 \end{theorem}
