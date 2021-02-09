@@ -254,9 +254,11 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
     from $(\Omega,\mathcal A)$ to $(\reals,\mathcal B)$, $\mathcal B$
     Borel $\sigma$-algebra of $\reals$ if, and only is, both the
     positive part $f^+$ and the negative part $f^-$ are measurable.
-  \item The set of real measurable functions is a real vector space.
+  \item The set of real measurable functions $\mathcal L$ is a real algebra with
+    unit. $\mathcal L$ is stable for sequential $\inf$, $\sup$, $\liminf$,
+    $\limsup$, $\lim$.
   \item \label{item:upsimple} A non-negative function $f$ is measurable from
-    $(\Omega,\mathcal A)$ to $\reals,\mathcal B$ if, and only if,
+    $(\Omega,\mathcal A)$ to $(\reals,\mathcal B)$ if, and only if,
     there exists an increasing sequence $g_j$ of simple measurable
     functions
     \begin{equation*}
@@ -290,6 +292,11 @@ on $(\Omega,\mathcal A)$.
     \int g \ d\mu
   \end{equation*}
 in the algebra of $[0,\infty]$. 
+\item For each sequence $(f_j)$ of non-negative measurable function
+  the \emph{$\sigma$-additivity} holds,
+  \begin{equation*}
+    \int \sum_{j=1}^\infty f_j \ d\mu = \sum_{j=1}^\infty  \int f_j \ d\mu \ .
+  \end{equation*}
 \item For each sequence $(f_j)$ of non-negative measurable function
   the \emph{Fatou theorem} holds,
   \begin{equation*}
