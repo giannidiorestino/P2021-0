@@ -4,7 +4,7 @@
 \usepackage{amsmath,amssymb}
 \swapnumbers
 \usepackage{bbm}
-\usepackage{bibentry}
+%\usepackage{bibentry}
 \usepackage{bm}
 \usepackage{fullpage}
 \usepackage{macros}
@@ -14,21 +14,21 @@
 
 \usepackage{cleveref}
 
-\newcommand{\Dspace}[2]{\mathbb D^{#1,#2}}
+%\newcommand{\Dspace}[2]{\mathbb D^{#1,#2}}
 \newcommand{\Image}{\operatorname{image}}
 \newcommand{\MRof}[2]{\operatorname{Mat}\left(#1\times#2\right)}
 \newcommand{\Mof}[1]{\operatorname{Mat}\left(#1\times#1\right)}
-\newcommand{\OU}{\mathcal L}
-\newcommand{\Oof}[1]{\operatorname{O}(#1)}
-\newcommand{\Sfunctions}{\mathcal S}
-\newcommand{\bu}{\bm u}
-\newcommand{\by}{\bm y}
-\newcommand{\bz}{\bm z}
+%\newcommand{\OU}{\mathcal L}
+%\newcommand{\Oof}[1]{\operatorname{O}(#1)}
+%\newcommand{\Sfunctions}{\mathcal S}
+%\newcommand{\bu}{\bm u}
+%\newcommand{\by}{\bm y}
+%\newcommand{\bz}{\bm z}
 \newcommand{\calF}{\mathcal F}
 \newcommand{\gaussian}[3]{\operatorname{N}_{#1}\left(#2,#3\right)}
 \newcommand{\one}{\bm 1}
-\newcommand{\ppdiag}[1]{\diag_{++}\left(#1\right)}
-\renewcommand{\S}{\mathbb S}
+%\newcommand{\ppdiag}[1]{\diag_{++}\left(#1\right)}
+%\renewcommand{\S}{\mathbb S}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}%[section]
@@ -67,7 +67,7 @@ Poisson Process, Continuous-Time Markov Chains, Renewal Theory,
 Queueing Theory, Reliability Theory, Brownian Motion, Simulation,
 Coupling), and \cite{efron|hastie:2016} for modern applications to
 Statistics (Lasso, Random Forests, Neural Networks, Deep Learning,
-Support-Vector Machines, Kernel Methods, Empirical Bayes).
+Support-Vector Machines, Kernel Methods, Empirical Bayes). The SEP entry \cite{sep-probability-interpret} is a good starting point for the Philosophy of Probability.
 
 \section{$\sigma$-algebra, measure, and probability}
 \label{sec:probability}
@@ -271,7 +271,7 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
 \begin{theorem}[Integral of a positive measurable function]
 Let $f$ be a non-negative measurable function on the measurable space
 $(\Omega,\mathcal A)$, $f \in \mathcal L_+(\mathcal A)$ and let $(g_j)$ be a sequence of simple
-functions increasing pointwise $f$, see
+functions increasing point-wise to $f$, see
 \cref{th:checkmeasurable}\eqref{item:upsimple}. Le be given a measure $\mu$
 on $(\Omega,\mathcal A)$.
 \begin{enumerate}
@@ -306,25 +306,3 @@ in the algebra of $[0,\infty]$.
 
 \end{document}
 
-\usepackage{macros}
-
-\title{P2021-0}
-\author{Giovanni Pistone}
-\date{DRAFT \today}
-
-\begin{document}
-
-\maketitle
-
-This is a list of relevant theorems with references.
-
-\section{Probability}
-\label{sec:probability}
-
-\section{Integrals}
-\label{sec:integrals}
-
-\bibliographystyle{amsplain}
-\bibliography{tutto}
-
-\end{document}
