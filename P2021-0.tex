@@ -366,6 +366,54 @@ and the inequality follows from the monotonicity of the integral. See
 \cite[Th. 3.3]{rudin:1987-3rd}.
   \end{proof}
 \end{theorem}
+
+\begin{remark}(Almost everywere) If $\mu\setof{\omega \in
+    \Omega}{f(\omega) = g(\omega)} = 0$, we say that $f$ and $g$ are
+  equal almost everywere. In such a case, $\int f \ d\mu = \int g \
+  d\mu$. For this reason, we consider the integral defined of
+  functions that are not defined on a measurable set of measure 0.  
+\end{remark}
+
+\begin{theorem}[Product measure]\
+  \begin{enumerate}
+  \item (\emph{Existence)} Given two measure spaces $(\Omega_1,\mathcal A_1,\mu_1)$ and
+    $(\Omega_2,\mathcal A_2,\mu_2)$, there exixst a unique 
+    measure $\mu_1 \otimes \mu_2$ on the product measurable space
+    $(\Omega_1 \times \Omega_2, \mathcal A_1 \otimes A_2)$ such that
+    \begin{equation*}
+      \mu_1 \otimes \mu_2 (A_1 \times A_2) = \mu_1(A_1) \mu_2(A_2) \ .
+    \end{equation*}
+\item (\emph{Tonelli}) If $f \in \mathcal L_+(\mathcal A_1 \otimes \mathcal A_2)$, then
+  \begin{multline*}
+    \int f \ d\mu_1\otimes\mu_2 = \\ \int_{\Omega_1} \left(\int_{\Omega_2}
+    f(\omega_1,\omega_2)  \ \mu_2(d\omega_2)\right) \ \mu_1(d\omega_1)
+  = \int_{\Omega_2} \left(\int_{\Omega_1}
+    f(\omega_1,\omega_2)  \ \mu_1(d\omega_1)\right) \ \mu_2(d\omega_2)
+  \ .
+  \end{multline*}
+\item (\emph{Fubini}) If $f \in \mathcal L^1(\mu_1 \otimes \mu_2)$, then
+  \begin{multline*}
+    \int f \ d\mu_1\otimes\mu_2 = \\ \int_{\Omega_1} \left(\int_{\Omega_2}
+    f(\omega_1,\omega_2)  \ \mu_2(d\omega_2)\right) \ \mu_1(d\omega_1)
+  = \int_{\Omega_2} \left(\int_{\Omega_1}
+    f(\omega_1,\omega_2)  \ \mu_1(d\omega_1)\right) \ \mu_2(d\omega_2)
+  \ .
+  \end{multline*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The three statements above are actually variation of a single
+  constructive argument. Without restriction of generality, assume
+  that the meaasures are both finite. Then, one checks that for each
+  $C \in \mathcal A_1 \otimes A_2$ the function
+  $\omega_2 \mapsto \int_{\Omega_1} (\omega_1 \colon
+  (\omega_1,\omega_2) \in C) \ \nu_1(d\omega_1)$ is well defined,
+  measurable, positive, finite. The last step is the proof that the
+  iterated integral provides the required product measure. See
+  \cite[Sec. 8.1-9]{rudin:1987-3rd}.
+\end{proof}
+
 \bibliographystyle{amsplain}
 \bibliography{tutto}
 
