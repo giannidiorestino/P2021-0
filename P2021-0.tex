@@ -285,6 +285,10 @@ on $(\Omega,\mathcal A)$.
   \end{equation*}
   does not depend on the sequence $(g_j) \uparrow f$ and it is called the
   \emph{integral of $f$ with respect to $\mu$}.
+\item If $f, g \in \mathcal L_+$ then
+  \begin{equation*}
+    f \leq g \quad \Rightarrow \quad \int f \ d\mu \leq \int g \ d\mu \ .
+  \end{equation*}
 \item Given constants $\alpha,\beta \geq 0$ and functions $f,g \in
   \mathcal L_+(\mathcal A)$, it holds
   \begin{equation*}
@@ -292,22 +296,76 @@ on $(\Omega,\mathcal A)$.
     \int g \ d\mu
   \end{equation*}
 in the algebra of $[0,\infty]$. 
-\item For each sequence $(f_j)$ of non-negative measurable function
-  the \emph{$\sigma$-additivity} holds,
+\item (\emph{$\sigma$-additivity})For each sequence $(f_j)$ of non-negative measurable function
+  it holds,
   \begin{equation*}
     \int \sum_{j=1}^\infty f_j \ d\mu = \sum_{j=1}^\infty  \int f_j \ d\mu \ .
   \end{equation*}
-\item For each sequence $(f_j)$ of non-negative measurable function
-  the \emph{Fatou theorem} holds,
+\item (\emph{Beppo Levi}) For each non-decreasing sequence $(f_j)$ of non-negative measurable function
+  such that $\int \sup_{j} f_j \ d\mu < \infty$, then $\sup_j f_j = f
+  \in \mathcal L_+$ and $\int f \ d\mu = sup_j \int f_j \ d\mu <
+  \infty$. Moreover, $\lim_{j \to \infty} \inf (f - f_j) \ d\mu = 0$.  
+\item (\emph{Fatou}) For each sequence $(f_j)$ of non-negative measurable function
+  such that $\liminf_{j\to\infty} f_j = f \in \mathcal L$, it  holds,
   \begin{equation*}
     \int \liminf_{j \to \infty} f_j \ d\mu \leq \liminf_{j \to \infty}
     \int f_j \ d\mu \ .
   \end{equation*}
-
 \end{enumerate}
-
 \end{theorem}
 
+\begin{definition}
+  If $f$ is a real measurable function on $(\Omega,\mathcal A)$, then
+  $f = f^+ - f^-$. $f^+$ and $f^-$ are non-negative measurable
+  functions. Given a measure $\mu$, If $\int f^- \ d\mu < \infty$,
+  then we say that $f$ is \emph{quasi-integrable} define
+  \begin{equation*}
+    \int f \ d\mu = \int f^+ \ d\mu - \int f^- \ d\mu \ .
+  \end{equation*}
+If $\int \avalof f \ d\mu < \infty$, then $f$ is \emph{integrable}, $f
+\in \mathcal L^1(\mu)$.
+\end{definition}
+
+\begin{theorem}[Integrable functions]\
+  \begin{enumerate}
+  \item The set $\mathcal L^1(\mu)$ of integrable real functions is a
+    vector space.
+  \item The mapping
+    \begin{equation*}
+      \mathcal L^1(\mu) \ni f \mapsto \int f \ d\mu \in \reals
+    \end{equation*}
+is linear and
+\begin{equation*}
+  \avalof{\int f \ d\mu} \leq \int \avalof f \ d\mu \ .
+\end{equation*}
+\item (\emph{Lebesgue}) Let $(f_j)$ be a sequence in $\mathcal
+  L^1(\mu)$. Assume that $\lim_j f_j = f$ pointwise and there exists a
+  $g \in \mathcal L^1(\mu)$ such that $\avalof{f_j} \leq g$. Then, $f
+  \in \mathcal L^1(\mu)$ and $\lim_{j\to\infty} \int \avalof {f - f_j}
+  \ d\mu = 0$. 
+  \end{enumerate}
+
+\end{theorem}
+\begin{theorem}[Jensen's inequality]
+  Let $f$ be integrable. For each probability measure $\mu$ and
+  each convex function $\Phi \colon \reals \to \reals$ it holds
+  \begin{equation*}
+    \Phi\left(\int f \ d\mu\right) \leq \int \Phi\circ f \ d\mu \ .
+  \end{equation*}
+  \begin{proof}
+    If $\Phi$ is convex, for each $x_0$ there exists a $\beta$ such that
+    \begin{equation*}
+      \Phi(x) - \Phi(x_0) \geq \beta(x - x_0) \quad x \in \reals \ .
+    \end{equation*}
+In particular, if $x = f(\omega)$ and $x_0 = \int f \ d\mu$, then
+\begin{equation*}
+  \Phi\left(f(\omega)\right) \geq \Phi\left( \int f \ d\mu\right) +
+  \beta\left(f(\omega) - \int f \ d\mu\right) \ , 
+\end{equation*}
+and the inequality follows from the monotonicity of the integral. See
+\cite[Th. 3.3]{rudin:1987-3rd}.
+  \end{proof}
+\end{theorem}
 \bibliographystyle{amsplain}
 \bibliography{tutto}
 
