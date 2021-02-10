@@ -101,7 +101,8 @@ $\Omega$ is a set and the following holds.
   \end{enumerate}
 \end{enumerate}
 \end{definition}
-
+See \cite[Cap. 1]{rudin:1987-3rd}, or any other textbook.
+\begin{remark}\ 
 \begin{itemize}
 \item The couple $(\Omega,\mathcal A)$ is a \emph{measurable space} and
 $\mu$ is a measure on that measurable space. 
@@ -111,9 +112,18 @@ requires $\mu(B_1) < \infty$.
 \item  A mesure $\mu$ is finite if
 $\mu(\Omega) < \infty$. A finite measure is a probability measure if
 $\mu(\Omega) =1$.
-\item  The set of all measures is a convex cone. The set of
-all probability measures is a convex set.
+\item The set of all measures is a \emph{convex cone}, that is, if
+  $\mu$ and $\nu$ are measures, then $(1-\lambda)\mu+\lambda \nu$,
+  $0 \leq \lambda \leq 1$, and $\alpha \mu$, $\alpha \geq 0$, are
+  measures. The set of all probability measures is a convex set. In
+  general, a subset $C$ of a vector space $V$ is \emph{convex} if
+  $x,y \in C$ implies $(1-\lambda)x + \lambda y \in C$ for all
+  $0 \leq \lambda \leq 1$. It is a \emph{cone} if for all $x \in C$ it
+  holds $\lambda x \in C$ for all $\lambda \geq 0$. In the case of
+  measures, the definition of the enclosing vector space is not
+  obvious.
 \end{itemize}
+\end{remark}
 
 \begin{definition}[Generation of a $\sigma$-algebra]\ 
 \begin{enumerate} 
@@ -126,14 +136,14 @@ all probability measures is a convex set.
 \item A family $\mathcal C \subset \mathcal A$ is a \emph{Dynkin
     system} if
   \begin{enumerate}
-  \item $\Omega \in \mathcal C$,
   \item $A \setminus B \in \mathcal C$ whenever $A \supset B$ and $A,B
     \in \mathcal C$,
   \item If $(B_i)$ is an increasing sequence in $\mathcal C$, then
     $\cup_i B_i \in \mathcal B$.
   \end{enumerate}
-  \item A family $\mathcal C \subset \mathcal A$ is a
-    \emph{$\pi$-system} if it is closed under intersection.  
+\item A family $\mathcal C \subset \mathcal A$ is a
+  \emph{$\pi$-system} if $\Omega \in \mathcal C$ and it is closed
+  under intersection.
   \end{enumerate}
 \end{definition}
 
@@ -222,11 +232,13 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
   $f_\# = \mu \circ f^{-1}$ is a measure on $(S,\mathcal S)$.
 \end{definition}
 
+\begin{remark}\ 
 \begin{itemize}
 \item $f_\#$ has many names: \emph{image}, \emph{push-forward},   \emph{distribution}.
 \item A measurable function on a probability space is called a
   \emph{random variable}.
 \end{itemize}
+\end{remark}
 
 \begin{theorem}[Checking that a function is
   measurable]\label{th:checkmeasurable}\
@@ -271,20 +283,23 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
 \label{sec:integrals}
 
 \begin{theorem}[Integral of a positive measurable function]
-Let $f$ be a non-negative measurable function on the measurable space
-$(\Omega,\mathcal A)$, $f \in \mathcal L_+(\mathcal A)$ and let $(g_j)$ be a sequence of simple
-functions increasing point-wise to $f$, see
-\cref{th:checkmeasurable}\eqref{item:upsimple}. Le be given a measure $\mu$
-on $(\Omega,\mathcal A)$.
 \begin{enumerate}
-\item The limit
+% \item Let $f$ be a non-negative measurable function on the measurable space
+% $(\Omega,\mathcal A)$, $f \in \mathcal L_+(\mathcal A)$ and let $(g_j)$ be a sequence of simple
+% functions increasing point-wise to $f$, see
+% \cref{th:checkmeasurable}\eqref{item:upsimple}.
+\item Le be given a measure $\mu$ on $(\Omega,\mathcal A)$.  For each
+  simple function $g$ define
   \begin{equation*}
-    \int f \ d\mu = \sup_j \int f_j(\omega) \ d\mu = \sup_j \sum_{x \in
-      \operatorname{Image} f_j} x \mu\setof{\omega}{f_j(\omega) = x}
-    \in [0,\infty]  
+    \int g \ d\mu = \sum_{x \in
+      \operatorname{Image} g} x \mu\setof{\omega}{f_j(\omega) = x}
+    \in \reals \ .  
   \end{equation*}
-  does not depend on the sequence $(g_j) \uparrow f$ and it is called the
-  \emph{integral of $f$ with respect to $\mu$}.
+\item For each non-negative measurable $f$ define
+  \begin{equation*}
+    \int f \ d\mu = \sup \setof{\int g \ d\mu}{\text{$g$ is simple and
+      $g \leq f$}} \ .
+  \end{equation*}
 \item If $f, g \in \mathcal L_+$ then
   \begin{equation*}
     f \leq g \quad \Rightarrow \quad \int f \ d\mu \leq \int g \ d\mu \ .
