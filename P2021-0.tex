@@ -43,7 +43,7 @@
 \newtheorem{example}[theorem]{Example}
 
 
-\title{Probability 2021 \\ Part 0
+\title{Probability 2021 \\ Part 0 \\ Recap of measure theory
 }
 \author[G. Pistone]{Giovanni Pistone}
 \address{de Castro Statistics, Collegio Carlo Alberto}
@@ -86,13 +86,13 @@ $\Omega$ is a set and the following holds.
     if $A_i \in \mathcal A$ for all $i \in \naturals$.
   \end{enumerate}
   \item $\mu$ is a \emph{$\sigma$-finite measure}, briefly, a
-    \emph{measure}, that is, $\mu \colon \Omega \to [0,\infty]$ satisfies
+    \emph{measure}, that is, $\mu \colon \mathcal A \to [0,\infty]$ satisfies
   \begin{enumerate} 
   \item $\mu(\emptyset) = 0$,
   \item \label{item:measure-sigma}
     $\mu\left(\cup_{i=1 }^\infty A_i\right) = \sum_{i=1}^\infty
     \mu(A_i)$ whenever $(A_i)$ is a disjoint sequence in $\mathcal
-    M$. Equivalently,
+    A$. Equivalently,
     $\mu(A \cup B) + \mu(A \cap B) = \mu(A) + \mu(B)$ and
     $B_i \uparrow B$ implies $\mu(B_i) \uparrow \mu(B)$.
   \item There is an increasing sequence $(\Omega_k)$ in $\mathcal A$
@@ -139,7 +139,7 @@ $\mu(\Omega) =1$.
   \item $A \setminus B \in \mathcal C$ whenever $A \supset B$ and $A,B
     \in \mathcal C$,
   \item If $(B_i)$ is an increasing sequence in $\mathcal C$, then
-    $\cup_i B_i \in \mathcal B$.
+    $\cup_i B_i \in \mathcal C$.
   \end{enumerate}
 \item A family $\mathcal C \subset \mathcal A$ is a
   \emph{$\pi$-system} if $\Omega \in \mathcal C$ and it is closed
@@ -282,7 +282,7 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
 \section{Integral}
 \label{sec:integrals}
 
-\begin{theorem}[Integral of a positive measurable function]
+\begin{theorem}[Integral of a positive measurable function]\ 
 \begin{enumerate}
 % \item Let $f$ be a non-negative measurable function on the measurable space
 % $(\Omega,\mathcal A)$, $f \in \mathcal L_+(\mathcal A)$ and let $(g_j)$ be a sequence of simple
@@ -311,8 +311,8 @@ See \cite[Th. 2.20]{rudin:1987-3rd}.
     \int g \ d\mu
   \end{equation*}
 in the algebra of $[0,\infty]$. 
-\item (\emph{$\sigma$-additivity})For each sequence $(f_j)$ of non-negative measurable function
-  it holds,
+\item (\emph{$\sigma$-additivity})For each sequence $(f_j)$ of non-negative measurable function such that $\sum_{j=1}^\infty f_j(\omega) = f(\omega) < \infty$, 
+  it holds
   \begin{equation*}
     \int \sum_{j=1}^\infty f_j \ d\mu = \sum_{j=1}^\infty  \int f_j \ d\mu \ .
   \end{equation*}
