@@ -520,23 +520,52 @@ defines a probability measure on $(\Omega, \mathcal F_n)$. The
 sequence $(\mu_n)$ is consistent, that is, each $\mu_n$ is
 the restriction of $\mu_{n+1}$ to $\mathcal F_n$.
 
-The \emph{shift} is the mapping $\tau \colon \Omega \to \Omega$
+The (left) \emph{shift} is the mapping $\tau \colon \Omega \to \Omega$
 defined by 
 \begin{equation*}
   \tau(x_1,x_2,\dots) = (x_2,x_3,\dots) \ , \quad \omega =
   (x_1,x_2,\dots) \in \Omega \ .
 \end{equation*}
-It holds $X_j\circ \tau = X_{j+1}$ and the shift is a measurable
-mapping from $(\Omega, \mathcal F)$ to itself. The mapping $S \colon
+It holds $X_j\circ \tau = X_{j+1}$. The shift is a surjective,
+non-injective,  measurable
+mapping from $(\Omega, \mathcal F)$ to itself.
+
+The mapping $S \colon
 \Omega \to [0,1]$ is well defined by
 \begin{equation*}
   S(\omega) = \sum_{j=1}^\infty X_j(\omega) 2^{-j} \ .
 \end{equation*}
-$S$ is not a bijection because $S(1,0,0,\dots) = S(0,1,1,\dots)$. It holds
+$S$ is non-jnective because $S(1,0,0,\dots) = S(0,1,1,\dots)$. It holds
 \begin{equation*}
   S\circ \tau (\omega) = \sum_{j=1}^\infty X_{j+1}(\omega) 2^{-j} = 2
   S(\omega) - X_1(\omega) \ .
 \end{equation*}
+
+The \emph{right shift} is the mapping $\sigma \colon \Omega \to \Omega$
+defined by 
+\begin{equation*}
+  \sigma(x_1,x_2,\dots) = (0,x_1,x_2,\dots) \ , \quad \omega =
+  (x_1,x_2,\dots) \in \Omega \ .
+\end{equation*}
+It holds $X_j\circ \sigma = X_{j-1}$, where $X_0 = 0$. The right shift
+is a non-surjective, injective, and measurable mapping. It holds
+$S(\sigma \omega) = \frac12 S(\omega)$.
+
+The composition of the two shifts is
+\begin{gather*}
+  \sigma \circ \tau \colon (x_1,x_2,x_3,\dots) \mapsto (x_2,x_3,\dots)
+  \mapsto (0,x_2,x_3, \dots)
+  \\
+  \tau \circ \sigma \colon (x_1,x_2,x_3,\dots) \mapsto (0,x_1,x_2,\dots)
+  \mapsto (x_1,x_2,x_3, \dots)
+\end{gather*}
+In $\tau$ the first bit is lost, while in $\sigma$ all
+bits are conserved. It follows $\tau \circ \sigma = \operatorname{Id}$
+and $\tau \circ \sigma \circ \tau = \tau$, which are two forms of the notion of
+\emph{pseudo-inverse}.
+
+
+
 
 It is possible to define a function $S^+ \colon [0,1[ \to \Omega$ with
 the following properties: 1) $S^+$ is measurable from $([0,1[ ,
